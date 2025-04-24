@@ -123,7 +123,46 @@
           display: none;
         }
       }
+    
 
+      @media (max-width: 768px) {
+        .navbar-nav {
+          display: flex;
+          flex-direction: column; /* Stack navbar items vertically */
+          align-items: center;
+          width: 100%;
+        }
+      
+        .navbar-nav .nav-item {
+          text-align: center;
+          padding: 8px 0;
+        }
+      
+        .navbar-toggler {
+          border: 1px solid #ddd;
+          color: #333;
+        }
+      
+        .navbar-collapse {
+          flex-grow: 1;
+          justify-content: center;
+        }
+      
+        .d-flex.mx-auto {
+          width: 90%; /* Limit the search bar width to avoid overflow */
+          max-width: 400px;
+        }
+      
+        .navbar-brand {
+          flex-grow: 1; /* Ensure the brand takes up space */
+          text-align: left; /* Align brand to the left */
+        }
+      
+        .navbar-nav.ms-auto {
+          display: none; /* Hide right items on mobile */
+        }
+      }
+      
     
     
   </style>
@@ -269,4 +308,15 @@
     mobileFilters.style.display = 
       mobileFilters.style.display === "flex" ? "none" : "flex";
   });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarMenu = document.querySelector(".navbar-collapse");
+  
+    navbarToggler.addEventListener("click", function () {
+      navbarMenu.classList.toggle("collapse");
+    });
+  });
+  
 </script>
